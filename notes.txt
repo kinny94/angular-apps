@@ -29,3 +29,5 @@ at the same time.
 String interpolation does not work in property binding.
 
 $event - It is simply the data that will be emitted with that event. Reserved word
+
+Two Way Databinding - With two way data binding we combine both Property and event binding.
