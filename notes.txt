@@ -26,3 +26,4 @@ Combination of both = 2 way data binding ( [( ngModel )] = "data" ) - where we a
 at the same time.
 
 [] - implies angular that we are binding some property.
+String interpolation does not work in property binding.
