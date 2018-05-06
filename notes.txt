@@ -1,4 +1,16 @@
+In angular, the single page that is served is the index.html file in the root directory. The rest code is passed as
+bundle.js.
+
 The first JavaScript/TypeScript code that gets executed is the one in the main.ts file.
     - Then we bootstrap an angular application and we pass this module as an argument.
     - In this module, we tell angular that there is an AppComponent, that you should know of while starting the application.
     - Then angular reads the component setup and thereof knows the selector.
+
+A component, in Angular is just a TypeScript class. Angular is able to instantiate it, to create objects.
+
+Decorators are a typescript feature that allows you to enhance your classes/elements. for eg @Component
+@Component({
+  //meta data  
+})
+
+Inside the braces we add meta-data which teels angular what to do with this class.
