@@ -16,4 +16,4 @@ Decorators are a typescript feature that allows you to enhance your classes/elem
 Inside the braces we add meta-data which teels angular what to do with this class.
 
 Angular uses component to create webpages and uses modules to bundle different components into packages. (eg app.module.ts).
-We register new component in the declaration array in module files.
+We register new component in the declaration array in module files
