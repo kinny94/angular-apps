@@ -24,3 +24,5 @@ React to User - Event Binding ( ( event ) = "expression" )
 
 Combination of both = 2 way data binding ( [( ngModel )] = "data" ) - where we are able to react to events and output Data
 at the same time.
+
+[] - implies angular that we are binding some property.
