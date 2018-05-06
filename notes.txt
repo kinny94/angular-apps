@@ -27,3 +27,5 @@ at the same time.
 
 [] - implies angular that we are binding some property.
 String interpolation does not work in property binding.
+
+$event - It is simply the data that will be emitted with that event. Reserved word
