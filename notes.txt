@@ -1,0 +1,4 @@
+The first JavaScript/TypeScript code that gets executed is the one in the main.ts file.
+    - Then we bootstrap an angular application and we pass this module as an argument.
+    - In this module, we tell angular that there is an AppComponent, that you should know of while starting the application.
+    - Then angular reads the component setup and thereof knows the selector.
