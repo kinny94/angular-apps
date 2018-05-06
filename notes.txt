@@ -17,3 +17,10 @@ Inside the braces we add meta-data which teels angular what to do with this clas
 
 Angular uses component to create webpages and uses modules to bundle different components into packages. (eg app.module.ts).
 We register new component in the declaration array in module files
+
+Data Binding - Communication between your typescript code and Template.
+Output data - String interpolation ( {{ data }} ) or Property Binding ( [ property ] = "data" )
+React to User - Event Binding ( ( event ) = "expression" )
+
+Combination of both = 2 way data binding ( [( ngModel )] = "data" ) - where we are able to react to events and output Data
+at the same time.
