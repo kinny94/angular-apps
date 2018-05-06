@@ -33,3 +33,4 @@ $event - It is simply the data that will be emitted with that event. Reserved wo
 Two Way Databinding - With two way data binding we combine both Property and event binding.
 
 Directives : Directives are instructions in the DOM.
+ng-if is a structural directive.
