@@ -6,5 +6,15 @@ Web Components consists of 4 main features which can be used separately or all t
 1.) Custom elements   - API's to define new HTML elements
 2.) Shadow DOM - Encapsulated DOM and styling, with composition.
 3.) HTML imports - Declarative methods of importing HTML documents into other documents.
-4.) HTML templates - The <template> element which allows documents to contain inert chunks of DOM.
+4.) HTML templates - The <template> element which allows documents to contain insert chunks of DOM.
 
+Angular Lifecycle.
+
+ngOnChanges - Called after a bound input property changes. ( Property decorated with @Input )
+ngOnInit - Called Once the component has been initiliazed.
+ngDoCheck - Called during every change detection run.
+ngAfterContentInit - Called after content ( ng-content ) has been projected into view.
+ngAfterContentChecked - Called everytime the projected content has been checked.
+ngAfterViewInit - Called after the component's view ( and child views ) has been initialized.
+ngAfterViewChecked - Called every time the view ( and child views ) have been checked.
+ngOnDestroy - Called once the component is about to be destroyed.
