@@ -1,0 +1,10 @@
+Web Components - Web Components are a set of feature currently being added by the W3C to the HTML and DOM specifications 
+that allow for the creation of reusable widgets or components in web documents.
+
+Web Components consists of 4 main features which can be used separately or all together.
+
+1.) Custom elements   - API's to define new HTML elements
+2.) Shadow DOM - Encapsulated DOM and styling, with composition.
+3.) HTML imports - Declarative methods of importing HTML documents into other documents.
+4.) HTML templates - The <template> element which allows documents to contain inert chunks of DOM.
+
