@@ -18,3 +18,8 @@ ngAfterContentChecked - Called everytime the projected content has been checked.
 ngAfterViewInit - Called after the component's view ( and child views ) has been initialized.
 ngAfterViewChecked - Called every time the view ( and child views ) have been checked.
 ngOnDestroy - Called once the component is about to be destroyed.
+
+Directives
+Attribute vs structural
+Attribute Directives- they sit on elements just like attributes. 
+Structural Directives - They do the same but chanbge the structure of the DOM around this element. with *
