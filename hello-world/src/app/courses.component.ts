@@ -21,12 +21,16 @@ import { Component } from '@angular/core';
                     <td [attr.colspan]="colspan"></td>
                 </tr>
             </table>
-            <button class="btn btn-primary" [class.active]="isActive">
-                Save
-            </button>
-        `    //htlml markup  to be rendered for this component 
+            <button class="btn btn-primary" [class.active]="isActive" (click)="onSave( $event )">Save</button>
+            <button [style.backgroundColor]="isActive ? 'blue' : 'red'">Inline Style</button>
+            <input (keyup)="onKeyUp( $event )" />
+            <input (keyup.enter)="onKeyEnter()" />
+            <input #email (keyup.enter)="onKeyUpEmail( email.value )" />
+        `    
+        //htlml markup  to be rendered for this component 
         // Property binding only works in one way, from the component to the DOM. If the fields in the component change angular
         // will update the DOM. But changes in the DOM are not updated in components.
+        // # is used to create a template variable for eg #email
 })
 
 export class CoursesComponent{
@@ -35,6 +39,25 @@ export class CoursesComponent{
     imgUrl = "http://lorempixel.com/400/200";
     colspan = 2;
     isActive = true;
+
+
+    onKeyUp( $event ){
+        if( $event.keyCode === 13 ){
+            console.log( $event.target.value);
+        }
+    }
+
+    onKeyUpEmail( email ){
+        console.log( email );
+    }
+
+    onKeyEnter(){
+        console.log( "Enter was pressed!! ");
+    }
+
+    onSave( $event ){   //$event represents the DOM event
+        console.log( "Button was clicked!", $event );
+    }
 
     getTitle(){
         return "List of Courses"
