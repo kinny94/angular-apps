@@ -8,3 +8,20 @@
 <ng-template #noCourses>
     There are no courses available
 </ng-template>
+
+<div [hidden]="courses.length == 0">   
+    Show and Hide 
+</div>
+<div [hidden]="courses.length > 0">
+    Hide and show
+</div>
+
+<ul class="nav nav-pills">
+    <li [class.active]="viewMode == 'map'"><a (click)="viewMode='map'">Map view</a></li>
+    <li [class.active]="viewMode == 'list'"><a (click)="viewMode='map'">List view</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">Map view Content</div>
+    <div *ngSwitchCase="'list'">List view Content</div>
+    <div *ngSwitchDefault>Otherwise</div>
+</div>
