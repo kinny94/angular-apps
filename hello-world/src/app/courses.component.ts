@@ -52,6 +52,17 @@ import { Component } from '@angular/core';
 
 export class CoursesComponent{
 
+    courses;
+    constructor( service: CoursesService ){
+        // let service = new CoursesService();
+ 
+        // you use new ClassName in your class we have tightly couple that instance of the class to the implementation
+        // and cannot change at runtime, so its better to provide it as a dependency.
+         
+        // Dependency injection means, injecting or providing the dependencies into its constructor.
+         this.courses = service.getCourses();
+     }
+
     title = 'List of courses';
     imgUrl = "http://lorempixel.com/400/200";
     colspan = 2;
@@ -86,17 +97,8 @@ export class CoursesComponent{
         return "List of Courses"
     }
 
-    courses;
-
-    constructor( service: CoursesService ){
-       // let service = new CoursesService();
-
-       // you use new ClassName in your class we have tightly couple that instance of the class to the implementation
-       // and cannot change at runtime, so its better to provide it as a dependency.
-        
-       // Dependency injection means, injecting or providing the dependencies into its constructor.
-        this.courses = service.getCourses();
-    }
-
-    //Logic for calling an HHTP service 
+    post = {
+        title: "Title",
+        isFavorite: true
+    } 
 }
