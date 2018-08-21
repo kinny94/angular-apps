@@ -9,16 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 	title = 'Angular App';
 	viewMode = 'something else';
-	courses = [
-		{
-			id: 1, name: 'course 1'
-		},
-		{
-			id: 2, name: 'course 2'
-		},{
-			id: 3, name: 'course 3'
-		}
-	] 
+	courses = [];
 	
 	onAdd(){
 		this.courses.push({
@@ -34,6 +25,23 @@ export class AppComponent {
 
 	onChange( course ){
 		course.name = "Updated"
+	}
+
+	loadCourses(){
+		this.courses = [
+			{
+				id: 1, name: 'course 1'
+			},
+			{
+				id: 2, name: 'course 2'
+			},{
+				id: 3, name: 'course 3'
+			}
+		] 
+	}
+
+	trackCourse( index, course ){
+		return course ? course.id : undefined;
 	}
 
 }

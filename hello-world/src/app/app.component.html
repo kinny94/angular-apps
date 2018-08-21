@@ -1,38 +1,38 @@
 <h1>Angular</h1>
-<courses></courses>
+
+<div [hidden]="courses.length > 0">
+    <p>Courses Not loaded yet!!!</p>
+</div>
+<button (click)="loadCourses()" class="btn btn-success">Load Courses</button>
+
 <div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
 
 <ng-template #coursesList>
     List of courses
+    <button (click)="onAdd()" class="btn btn-primary">Add</button>
+
+    <ul class="nav nav-pills">
+        <li [class.active]="viewMode == 'map'"><a (click)="viewMode='map'">Map view</a></li>
+        <li [class.active]="viewMode == 'list'"><a (click)="viewMode='map'">List view</a></li>
+    </ul>
+    <div [ngSwitch]="viewMode">
+        <div *ngSwitchCase="'map'">Map view Content</div>
+        <div *ngSwitchCase="'list'">List view Content</div>
+        <div *ngSwitchDefault>Otherwise</div>
+    </div>
+
+    <ul>
+        <li *ngFor="let course of courses; even as isEven; trackBy: trackCourse">
+            {{ i }} - {{ course.name }}
+            <span *ngIf="isEven">(EVEN)</span>
+            <button (click)="onRemove(course)" class="btn btn-sm btn-danger">Remove</button>
+            <button (click)="onChange(course)" class="btn btn-sm btn-warning">Update    </button>
+        </li>
+    </ul>
 </ng-template>
+
 <ng-template #noCourses>
     There are no courses available
 </ng-template>
 
-<div [hidden]="courses.length == 0">   
-    Show and Hide 
-</div>
-<div [hidden]="courses.length > 0">
-    Hide and show
-</div>
 
-<button (click)="onAdd()" class="btn btn-primary">Add</button>
-
-<ul class="nav nav-pills">
-    <li [class.active]="viewMode == 'map'"><a (click)="viewMode='map'">Map view</a></li>
-    <li [class.active]="viewMode == 'list'"><a (click)="viewMode='map'">List view</a></li>
-</ul>
-<div [ngSwitch]="viewMode">
-    <div *ngSwitchCase="'map'">Map view Content</div>
-    <div *ngSwitchCase="'list'">List view Content</div>
-    <div *ngSwitchDefault>Otherwise</div>
-</div>
-
-<ul>
-    <li *ngFor="let course of courses; even as isEven">
-        {{ i }} - {{ course.name }}
-        <span *ngIf="isEven">(EVEN)</span>
-        <button (click)="onRemove(course)" class="btn btn-sm btn-danger">Remove</button>
-        <button (click)="onChange(course)" class="btn btn-sm btn-warning">Update</button>
-    </li>
-</ul>
