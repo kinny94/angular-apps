@@ -1,2 +1,5 @@
 AngularJS -  2010
 Angular -  2015
+
+A component encapsulates teh data, the HTML markup and the logic.
+A Module is a container for a group of related components. - AppModule which is broken down into smaller modules
