@@ -16,6 +16,8 @@
     Hide and show
 </div>
 
+<button (click)="onAdd()" class="btn btn-primary">Add</button>
+
 <ul class="nav nav-pills">
     <li [class.active]="viewMode == 'map'"><a (click)="viewMode='map'">Map view</a></li>
     <li [class.active]="viewMode == 'list'"><a (click)="viewMode='map'">List view</a></li>
@@ -25,3 +27,12 @@
     <div *ngSwitchCase="'list'">List view Content</div>
     <div *ngSwitchDefault>Otherwise</div>
 </div>
+
+<ul>
+    <li *ngFor="let course of courses; even as isEven">
+        {{ i }} - {{ course.name }}
+        <span *ngIf="isEven">(EVEN)</span>
+        <button (click)="onRemove(course)" class="btn btn-sm btn-danger">Remove</button>
+        <button (click)="onChange(course)" class="btn btn-sm btn-warning">Update</button>
+    </li>
+</ul>
