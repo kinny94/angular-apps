@@ -21,11 +21,28 @@ import { Component } from '@angular/core';
                     <td [attr.colspan]="colspan"></td>
                 </tr>
             </table>
-            <button class="btn btn-primary" [class.active]="isActive" (click)="onSave( $event )">Save</button>
-            <button [style.backgroundColor]="isActive ? 'blue' : 'red'">Inline Style</button>
-            <input (keyup)="onKeyUp( $event )" />
-            <input (keyup.enter)="onKeyEnter()" />
-            <input #email (keyup.enter)="onKeyUpEmail( email.value )" />
+            <div class="container">
+                <button class="btn btn-primary" [class.active]="isActive" (click)="onSave( $event )">Save</button>
+            </div>
+            <div  class="container">
+                <button [style.backgroundColor]="isActive ? 'blue' : 'red'">Inline Style</button>
+            </div>
+            <div>
+                <input (keyup)="onKeyUp( $event )" />
+            </div>
+            <div>
+                <input (keyup.enter)="onKeyEnter()" />
+            </div>
+            <div>
+                <input #email (keyup.enter)="onKeyUpEmail( email.value )" />
+            </div>
+            <div>
+                <input [(ngModel)]="email2" (keyup.enter)="onKeyUpTwoWayBinding()" />
+            </div>
+            <div>
+                <p>{{ hugeText | summary }}</p>
+            </div>
+            
         `    
         //htlml markup  to be rendered for this component 
         // Property binding only works in one way, from the component to the DOM. If the fields in the component change angular
@@ -39,12 +56,18 @@ export class CoursesComponent{
     imgUrl = "http://lorempixel.com/400/200";
     colspan = 2;
     isActive = true;
+    hugeText = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`;
 
 
     onKeyUp( $event ){
         if( $event.keyCode === 13 ){
             console.log( $event.target.value);
         }
+    }
+
+    email2 = "me@example.com";
+    onKeyUpTwoWayBinding(){
+        console.log( this.email2 );
     }
 
     onKeyUpEmail( email ){
