@@ -1,22 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var point_1 = require("./point");
+var like_component_1 = require("./like.component");
 var arrow = function (message) {
     console.log(message);
 };
-//defining an interface - Interface are only for declaration, the cannot be used for an implementation.
-// Cohesion - Things that are related should be part on one unit.
-// first letter should be capital in interface
-var Point = /** @class */ (function () {
-    function Point() {
-        this.x = 5;
-        this.y = 7;
-    }
-    Point.prototype.draw = function () {
-        //...
-        console.log('X: ' + this.x + ', Y: ' + this.y);
-    };
-    Point.prototype.getDistance = function (another) {
-        //...
-    };
-    return Point;
-}());
-var point = new Point();
-point.draw();
+var point = new point_1.Point(1, 2);
+var x = point.getX();
+console.log(x);
+point.setX(10);
+x = point.getX();
+console.log(x);
+x = point.X;
+console.log(x);
+point.X = 10;
+x = point.X;
+console.log(x);
+var component = new like_component_1.LikeComponent(10, true);
+component.onClick();
+console.log("likeCount: " + component.likesCount + ", isSelected: " + component.isSelected);

@@ -1,31 +1,23 @@
+import { Point } from './point';
+import { LikeComponent } from './like.component';
+
 let arrow  = ( message ) => {
     console.log( message );
 }
 
-//defining an interface - Interface are only for declaration, the cannot be used for an implementation.
-// Cohesion - Things that are related should be part on one unit.
-// first letter should be capital in interface
-class Point{                                
-    x: number;
-    y: number;
+let point = new Point( 1, 2 );
+let x = point.getX();
+console.log( x );
+point.setX( 10 );
+x = point.getX();
+console.log( x );
 
-    // multiple constructor are not supported in typescript.
-    constructor( x ?: number, y ?: number ){
-        this.x = x;
-        this.y = y;
-    }
+x = point.X;
+console.log( x );
+point.X = 10;
+x = point.X;
+console.log( x );
 
-    draw(){
-        //...
-        console.log( 'X: ' + this.x + ', Y: ' +  this.y );
-    }
-
-    getDistance( another: Point ){
-        //...
-    }
-
-}
-
-
-let point = new Point();
-point.draw();
+let component = new LikeComponent( 10, true );
+component.onClick();
+console.log( `likeCount: ${ component.likesCount }, isSelected: ${ component.isSelected }` );
