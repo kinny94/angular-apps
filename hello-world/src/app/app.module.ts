@@ -9,6 +9,7 @@ import { CourseComponent } from './course/course.component';
 import { CoursesService } from './courses.service';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { InputFormatDirective } from './input-format.directive';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
 	declarations: [
@@ -19,7 +20,8 @@ import { InputFormatDirective } from './input-format.directive';
 		CourseComponent,
 		SummaryPipe,
 		FavoriteComponent,
-		InputFormatDirective
+		InputFormatDirective,
+		ContactFormComponent
 	],
 	imports: [
 		BrowserModule,
