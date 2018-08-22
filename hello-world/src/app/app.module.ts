@@ -1,7 +1,7 @@
 import { SummaryPipe } from './summary.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -10,6 +10,7 @@ import { CoursesService } from './courses.service';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 @NgModule({
 	declarations: [
@@ -21,11 +22,13 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 		SummaryPipe,
 		FavoriteComponent,
 		InputFormatDirective,
-		ContactFormComponent
+		ContactFormComponent,
+		SignupFormComponent
 	],
 	imports: [
 		BrowserModule,
-		FormsModule
+		FormsModule,
+		ReactiveFormsModule
 	],
 	providers: [
 		// we need to register all the dependencies that component of this module are dependent upon.
