@@ -44,4 +44,9 @@ export class AppComponent {
 		return course ? course.id : undefined;
 	}
 
+	canSave = true;
+
+	change(){
+		this.canSave = !this.canSave;
+	}
 }
