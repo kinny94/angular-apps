@@ -35,13 +35,16 @@
     There are no courses available
 </ng-template>
 
-<button (click)="change()" [style.backgroundColor]="canSave ? 'blue' : 'gray'"
-        [style.color]="canSave ? 'white' : 'black'"
-        [style.fontWeight]="canSave ? 'bold' : 'normal'"
-        [ngStyle]="{
-            'backgroundColor': canSave ? 'blue' : 'gray',
-            'color': canSave ? 'white' : 'black'
-        }"
->Save</button>
-
-
+<div>
+    <button (click)="change()" [style.backgroundColor]="canSave ? 'blue' : 'gray'"
+    [style.color]="canSave ? 'white' : 'black'"
+    [style.fontWeight]="canSave ? 'bold' : 'normal'"
+    [ngStyle]="{
+        'backgroundColor': canSave ? 'blue' : 'gray',
+        'color': canSave ? 'white' : 'black'
+    }"
+    >Save</button>
+</div>
+<div>
+    <span>{{ task.assignee?.name }}</span>
+</div>

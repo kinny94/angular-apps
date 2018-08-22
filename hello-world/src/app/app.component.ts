@@ -49,4 +49,11 @@ export class AppComponent {
 	change(){
 		this.canSave = !this.canSave;
 	}
+
+	task = {
+		title: 'Review applications',
+		assignee: {
+			name: 'John Smith'
+		}
+	}
 }
