@@ -9,6 +9,12 @@ import { UsernameValidators } from './username.validators';
 })
 export class SignupFormComponent{
 	
+	login(){
+		this.form.setErrors({
+			invalidLogin: true
+		});
+	}
+
 	form = new FormGroup({
 		username: new FormControl( '', [
 			Validators.required, 
