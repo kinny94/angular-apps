@@ -2,7 +2,7 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, map } from 'rxjs/operators';
 
 @Injectable({
 	providedIn: 'root'
@@ -18,21 +18,33 @@ export class PostService {
 	}
 
 	getPosts(){
-		return this.http.get( this.url );
+		return this.http.get( this.url ).pipe(
+			map( response => response ),
+			catchError(( error : Response ) => throwError( error ))
+		) 
 	}
 
 	createPosts( post ){
-		return this.http.post( this.url, JSON.stringify( post ));
+		return this.http.post( this.url, JSON.stringify( post )).pipe(
+			map( response => response ),
+			catchError(( error: Response ) => throwError( error ))
+		);
 	}
 
 	updatePosts( post ){
 		return this.http.patch( this.url + '/' + post.id, JSON.stringify({
 			isRead: true 
-		}));	
+		})).pipe(
+			map( response => response ),
+			catchError(( error: Response ) => throwError( error ))
+		);	
 	}
 
 	deletePost( post ): Observable<{}>{
-		return this.http.delete( this.url + '/' + post.id );
+		return this.http.delete( this.url + '/' + post.id ).pipe(
+			map( response => response ),
+			catchError(( error: Response ) => throwError( error ))
+		);
 	}
 
 	
