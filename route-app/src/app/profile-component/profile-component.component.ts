@@ -15,5 +15,4 @@ export class ProfileComponentComponent implements OnInit {
 			console.log( params.get( 'username' ) );
 		})
 	}
-	
 }
