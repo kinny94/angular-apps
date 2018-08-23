@@ -27,13 +27,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 				component: HomeComponentComponent
 			},
 			{
-				path: 'followers',
-				component: FollowersComponent
-			},
-			{
 				path: 'profile/:username',
 				component: ProfileComponentComponent	
 			},
+			{
+				path: 'profile',
+				component: FollowersComponent
+			},	
 			{
 				path: 'posts',
 				component: PostsComponentComponent
