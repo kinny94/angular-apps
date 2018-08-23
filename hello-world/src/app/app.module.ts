@@ -14,9 +14,10 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { PostComponentComponent } from './post-component/post-component.component';
-import { HttpModule } from '@angular/http'
+import { HttpModule } from '@angular/http'; 
+import { PostService } from 'services/post.service';
 
-@NgModule({
+@NgModule({ 
 	declarations: [
 
 		//including our components
@@ -42,7 +43,8 @@ import { HttpModule } from '@angular/http'
 		// we need to register all the dependencies that component of this module are dependent upon.
 		// when you register a dependency as a provider, angular will create a single instance of that class or that entire module
 		// which is called a singleton pattern.
-		CoursesService
+		CoursesService,
+		PostService
 	],
 	bootstrap: [AppComponent ]
 })

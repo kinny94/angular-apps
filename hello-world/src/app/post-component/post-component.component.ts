@@ -1,5 +1,5 @@
+import { PostService } from 'services/post.service';
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 
 @Component({
 	selector: 'post-component',
@@ -9,45 +9,59 @@ import { Http } from '@angular/http';
 export class PostComponentComponent implements OnInit {
 	
 	posts: any[];
-	private url = 'https://jsonplaceholder.typicode.com/posts';
 
-	constructor( private http: Http ){ 
-		http.get( this.url )
+	constructor( private service: PostService ){   
+	}
+
+	ngOnInit() {
+		this.service.getPosts()
 		.subscribe( response =>  {
 			this.posts = response.json();
-		})
+		}, ( error ) => {
+			alert( "An Unexpected Error Occured! " );
+			console.log( error );
+		});
 	}
 	
 	createPost( input: HTMLInputElement ){
 		let post = { title: input.value }
 		input.value = '';
 
-		this.http.post( this.url, JSON.stringify( post ))
+		this.service.createPosts( post )
 		.subscribe( response => {
 			post['id'] =  response.json().id;
 			this.posts.splice( 0, 0, post );
+		}, ( error: Response ) => {
+			if( error.status === 400 ){
+				//this.form.setErrors( errors.json());
+			}else{
+				alert( "An Unexpected Error Occured! " );
+				console.log( error );
+			}
 		})
 	}
 
 	updatePost( post ){
-		this.http.patch( this.url + '/' + post.id, JSON.stringify({
-			isRead: true 
-		})).subscribe( response => {
+		this.service.updatePosts( post ).subscribe( response => {
 			console.log( response.json() );
+		}, ( error ) => {
+			alert( "An Unexpected Error Occured! " );
+			console.log( error );
 		})
 		//	this.http.put( this.url, JSON.stringify( post ));
 	} 
 
 	deletePost( post ){
-		this.http.delete( this.url + '/' + post.id )
+		this.service.deletePost( 345 )
 		.subscribe( response => {
 			let index = this.posts.indexOf( post );
 			this.posts.splice( index, 1 );
+		}, ( error: Response ) => {
+			if( error.status === 404 )
+				alert( "Post doesn't exist!" );
+			else
+				alert( "An Unexpected Error Occured! " );
+			console.log( error );
 		});
 	}
-
-
-	ngOnInit() {
-	}
-	
 }
