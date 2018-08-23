@@ -12,7 +12,8 @@ export class ProfileComponentComponent implements OnInit {
 	
 	ngOnInit() {
 		this.route.paramMap.subscribe( params => {
-			console.log( params.get( 'username' ) );
+			console.log( params.get( 'username'));
+			console.log("Hello");
 		})
 	}
 }
