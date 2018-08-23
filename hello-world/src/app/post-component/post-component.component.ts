@@ -37,7 +37,7 @@ export class PostComponentComponent implements OnInit {
 			}else{
 				alert( "An Unexpected Error Occured! " );
 				console.log( error );
-			}
+			} 
 		})
 	}
 
