@@ -1,10 +1,12 @@
+import { MockBackend } from '@angular/http/testing';
+import { fakeBackendProvider } from './helpers/fake-backend';
 import { AuthService } from './services/auth.service';
 import { OrderService } from './services/order.service';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpModule, BaseRequestOptions } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponentComponent } from './home-component/home-component.component';
@@ -45,7 +47,10 @@ import { NoAccessComponentComponent } from './no-access-component/no-access-comp
 	],
 	providers: [
 		OrderService,
-		AuthService
+		AuthService, 
+		fakeBackendProvider,
+		MockBackend,
+		BaseRequestOptions
 	],
 	bootstrap: [AppComponent]
 })
