@@ -8,6 +8,7 @@ import { FollowersComponent } from './followers/followers.component';
 import { NavbarComponentComponent } from './navbar-component/navbar-component.component';
 import { PostsComponentComponent } from './posts-component/posts-component.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { MultipleRouteComponent } from './multiple-route/multiple-route.component';
 
 @NgModule({
 	declarations: [
@@ -17,7 +18,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 		FollowersComponent,
 		NavbarComponentComponent,
 		PostsComponentComponent,
-		NotFoundComponent
+		NotFoundComponent,
+		MultipleRouteComponent
 	],
 	imports: [
 		BrowserModule,
@@ -25,6 +27,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 			{
 				path: '',
 				component: HomeComponentComponent
+			},
+			{
+				path: 'followers/:id/:username',
+				component: MultipleRouteComponent
 			},
 			{
 				path: 'profile/:username',
