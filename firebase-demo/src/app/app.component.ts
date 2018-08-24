@@ -13,6 +13,6 @@ export class AppComponent {
 	
 	constructor( db: AngularFireDatabase ){
 		let items = db.list( 'fs1prod-4323d' );
-		
 	}
 }
+ 

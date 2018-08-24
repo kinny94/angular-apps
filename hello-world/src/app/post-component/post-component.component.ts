@@ -1,10 +1,15 @@
+import { fade } from './../animations';
 import { PostService } from 'services/post.service';
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
 	selector: 'post-component',
 	templateUrl: './post-component.component.html',
-	styleUrls: ['./post-component.component.css']
+	styleUrls: ['./post-component.component.css'],
+	animations: [
+		fade
+	]
 })
 export class PostComponentComponent implements OnInit {
 	
@@ -52,7 +57,7 @@ export class PostComponentComponent implements OnInit {
 	} 
 
 	deletePost( post ){
-		this.service.deletePost( 345 )
+		this.service.deletePost( post )
 		.subscribe( response => {
 			let index = this.posts.indexOf( post );
 			this.posts.splice( index, 1 );

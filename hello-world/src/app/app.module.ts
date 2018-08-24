@@ -2,6 +2,7 @@ import { SummaryPipe } from './summary.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
@@ -37,7 +38,8 @@ import { PostService } from 'services/post.service';
 		BrowserModule,
 		FormsModule,
 		ReactiveFormsModule,
-		HttpModule
+		HttpModule,
+		BrowserAnimationsModule
 	],
 	providers: [
 		// we need to register all the dependencies that component of this module are dependent upon.
