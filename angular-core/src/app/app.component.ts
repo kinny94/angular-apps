@@ -1,6 +1,6 @@
 import { CourseCardComponent } from './course-card/course-card.component';
 import { Course } from './model/course';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 import {COURSES} from '../db-data';
 
 @Component({
@@ -8,14 +8,26 @@ import {COURSES} from '../db-data';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
-  @ViewChild(CourseCardComponent, { read: '', static: false })
-  card: CourseCardComponent;
+  @ViewChildren('cardRef', { read: '' })
+  cards: QueryList<CourseCardComponent>;
+
+  @ViewChild('container', { read: ElementRef, static: false})
+  container: ElementRef;
+
+  @ViewChild('courseImage', {read: '', static: false})
+  courseImage: ElementRef;
 
   courses = COURSES;
 
   onCourseSelected(course: Course) {
-    console.log(this.card);
+    console.log(this.cards);
+  }
+
+  ngAfterViewInit() {
+    console.log(this.cards);
+    console.log(this.container);
+    console.log(this.courseImage);
   }
 }
