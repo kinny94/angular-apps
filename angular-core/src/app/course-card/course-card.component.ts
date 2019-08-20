@@ -30,4 +30,7 @@ export class CourseCardComponent implements OnInit {
     return this.course && this.course.iconUrl;
   }
 
+  cardClasses() {
+    return { 'beginner': this.course.category === 'BEGINNER' };
+  }
 }
