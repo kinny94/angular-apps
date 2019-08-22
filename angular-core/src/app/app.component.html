@@ -14,7 +14,8 @@
     (courseSelected)="onCourseSelected($event)" 
     [course]="course"
     [courseIndex]="i + 1"
-  >
-    <img #courseImage *ngIf="course.iconUrl; else noImage" width="300" alt="Angular Logo" [src]="course.iconUrl">
+  > 
+    <course-image [src]="course.iconUrl"></course-image>
+    <p #contentChild>Content Child</p>
   </course-card>
 </div>
