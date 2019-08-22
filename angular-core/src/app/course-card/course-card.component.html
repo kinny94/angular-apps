@@ -2,7 +2,7 @@
   <div class="course-title" [ngStyle]="cardStyle()">
     {{ courseIndex +  ' ' + course.description }}
   </div>
-  <img #courseImage *ngIf="isImageVisible(); else noImage" width="300" alt="Angular Logo" [src]="course.iconUrl">
+  <ng-content select="img"></ng-content>
   <ng-template #noImage>No Image Available</ng-template>
   
   <div class="course-description">
