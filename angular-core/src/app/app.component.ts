@@ -30,4 +30,8 @@ export class AppComponent implements AfterViewInit {
     console.log(this.container);
     console.log(this.courseImage);
   }
+
+  onToggle(isHighlighted: boolean) {
+    console.log(isHighlighted);
+  }
 }
