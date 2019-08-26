@@ -2,8 +2,10 @@
   <div class="course-title" [ngStyle]="cardStyle()">
     {{ courseIndex +  ' ' + course.description }}
   </div>
-  <ng-content select="course-image"; *ngIf="course.iconUrl; else blankImage"></ng-content>
-  
+  <ng-content select="course-image"; *ngIf="course.iconUrl; else noImage"></ng-content>
+  <ng-template #noImage>
+    <ng-container *ngTemplateOutlet="noImageTemplate; context: {description: course.description}"></ng-container>
+  </ng-template>
   
   <div class="course-description">
     {{ course?.longDescription }}

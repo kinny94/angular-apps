@@ -15,6 +15,9 @@ export class CourseCardComponent implements OnInit, AfterViewInit, AfterContentI
   @Input()
   courseIndex: number;
 
+  @Input()
+  noImageTemplate: TemplateRef<any>;
+
   @Output()
   courseSelected = new EventEmitter<Course>();
 
