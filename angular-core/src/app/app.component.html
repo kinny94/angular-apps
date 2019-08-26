@@ -12,6 +12,7 @@
 
   <course-card 
     highlighted
+    #highlighter="hl"
     (toggleHighlight)="onToggle($event)"
     #cardRef
     *ngFor="let course of courses; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd" 
@@ -25,6 +26,9 @@
     [noImageTemplate]="blankImage"
     > 
     <course-image [src]="course.iconUrl"></course-image>
+    <div class="course-description" (click)="highlighter.toggle()">
+      {{ course.longDescription }}
+    </div>
     <p #contentChild>Content Child</p>
   </course-card>
 </div>
