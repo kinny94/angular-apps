@@ -3,7 +3,16 @@
   src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 </div>
 
-<div class="courses" #container>
+<div class="courses" #container *ngIf="courses[0] as course">
+  
+  <ng-template #blankImage let-courseName="description">
+    <p class="warn">{{ courseName }} has no Image Available</p>
+    <img src="/assets/empty-image.png">
+  </ng-template>
+  
+  <ng-container *ngTemplateOutlet="blankImage; context: {description: course.description}" ></ng-container>
+  <hr>
+
   <course-card 
     #cardRef
     *ngFor="let course of courses; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd" 
@@ -14,7 +23,7 @@
     (courseSelected)="onCourseSelected($event)" 
     [course]="course"
     [courseIndex]="i + 1"
-  > 
+    > 
     <course-image [src]="course.iconUrl"></course-image>
     <p #contentChild>Content Child</p>
   </course-card>
