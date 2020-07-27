@@ -5,15 +5,21 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { CreateTodoComponent } from './components/create-todo/create-todo.component';
+import { CompletedTodosComponent } from './components/completed-todos/completed-todos.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateTodoComponent,
+    CompletedTodosComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, 'todo-app')
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'todo-app'),
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
