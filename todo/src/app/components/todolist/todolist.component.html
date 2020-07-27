@@ -1,0 +1,8 @@
+<div fxFlexFill fxLayout="row">
+  <button mat-raised-button color="primary">Create Todo</button>
+</div>
+<div fxFlexFill fxLayout="column" fxLayoutGap="25px">
+  <ng-container *ngFor="let todo of todos$ | async">
+    <p><mat-checkbox (change)="onCompleted(todo)">{{ todo.title }}</mat-checkbox></p>
+  </ng-container>
+</div>

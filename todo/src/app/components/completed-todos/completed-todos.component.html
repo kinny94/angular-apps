@@ -1,1 +1,17 @@
-<p>completed-todos works!</p>
+<div fxFlexFill fxLayout="row">
+  <p>Completed Todos!!</p>
+</div>
+<div fxFlexFill fxLayout="column" fxLayoutGap="25px">
+  <ng-container *ngIf="(completedTodos$ | async).length == 0; else completedTodos">
+    <p>You have not completed anything yet!!</p>
+  </ng-container>
+  <ng-template #completedTodos>
+    <ng-container *ngFor="let completedTodo of completedTodos$ | async">
+      <ng-container></ng-container>
+      <mat-checkbox [checked]="true" (change)="moveToTodo(completedTodo)" color="primary">
+        <p class="completed">Create a todo application!</p>
+      </mat-checkbox>
+      
+    </ng-container>
+  </ng-template>
+</div>

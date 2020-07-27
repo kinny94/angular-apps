@@ -9,12 +9,14 @@ import { CreateTodoComponent } from './components/create-todo/create-todo.compon
 import { CompletedTodosComponent } from './components/completed-todos/completed-todos.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
+import { TodolistComponent } from './components/todolist/todolist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateTodoComponent,
-    CompletedTodosComponent
+    CompletedTodosComponent,
+    TodolistComponent
   ],
   imports: [
     BrowserModule,
