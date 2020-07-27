@@ -9,7 +9,7 @@
     <ng-container *ngFor="let completedTodo of completedTodos$ | async">
       <ng-container></ng-container>
       <mat-checkbox [checked]="true" (change)="moveToTodo(completedTodo)" color="primary">
-        <p class="completed">Create a todo application!</p>
+        <p class="completed">{{ completedTodo.title }}</p>
       </mat-checkbox>
       
     </ng-container>

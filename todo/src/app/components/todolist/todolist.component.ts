@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Todos } from './../../types';
 import { TodoService } from './../../services/todo.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateTodoComponent } from '../create-todo/create-todo.component';
 
 
 @Component({
@@ -13,7 +15,10 @@ export class TodolistComponent implements OnInit {
 
   todos$ ?: Observable<Todos[]>;
 
-  constructor(private todoService: TodoService) { }
+  constructor(
+    private todoService: TodoService,
+    private dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
     this.todos$ = this.todoService.getTodos();
@@ -21,5 +26,11 @@ export class TodolistComponent implements OnInit {
 
   onCompleted(todo: Todos): void {
     return this.todoService.changeTodoStatus(todo);
+  }
+
+  createTodo(): void {
+    const dialogRef = this.dialog.open(CreateTodoComponent, {
+      width: '250px',
+    });
   }
 }

@@ -10,6 +10,7 @@ import { CompletedTodosComponent } from './components/completed-todos/completed-
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
 import { TodolistComponent } from './components/todolist/todolist.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TodolistComponent } from './components/todolist/todolist.component';
     AngularFireModule.initializeApp(environment.firebaseConfig, 'todo-app'),
     FlexLayoutModule,
     MaterialModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,14 @@
-<p>create-todo works!</p>
+<h1 mat-dialog-title>Create a new Todo!!</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="title">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="createTodo()">Create</button>
+</div>

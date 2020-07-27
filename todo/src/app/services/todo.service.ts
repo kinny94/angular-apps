@@ -2,41 +2,42 @@ import { Injectable } from '@angular/core';
 import { of, Observable, BehaviorSubject } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 import { TODO_STATUS, Todos } from './../types';
+import { ThrowStmt } from '@angular/compiler';
 
 const TODOS: Todos[] = [
   {
     name: 'Todo App 1',
-    title: 'Create a Todo App',
+    title: 'Create a Todo App 1',
     status: TODO_STATUS.Todo,
     createdAt: new Date(),
   },
   {
     name: 'Todo App 2',
-    title: 'Create a Todo App',
+    title: 'Create a Todo App 2',
     status: TODO_STATUS.Todo,
     createdAt: new Date(),
   },
   {
     name: 'Todo App 3',
-    title: 'Create a Todo App',
+    title: 'Create a Todo App 3',
     status: TODO_STATUS.Todo,
     createdAt: new Date(),
   },
   {
     name: 'Todo App 4',
-    title: 'Create a Todo App',
+    title: 'Create a Todo App 4',
     status: TODO_STATUS.Todo,
     createdAt: new Date(),
   },
   {
     name: 'Todo App 5' ,
-    title: 'Create a Todo App',
+    title: 'Create a Todo App 5',
     status: TODO_STATUS.Todo,
     createdAt: new Date(),
   },
   {
     name: 'Todo App 6',
-    title: 'Create a Todo App',
+    title: 'Create a Todo App 6',
     status: TODO_STATUS.Todo,
     createdAt: new Date(),
   }
@@ -72,5 +73,10 @@ export class TodoService {
       }
     });
     this.todosSubject.next(newTodos);
+  }
+
+  createNewTodo(newTodo: Todos): void {
+    const currentTodos = this.todosSubject.getValue();
+    this.todosSubject.next([...currentTodos, newTodo]);
   }
 }

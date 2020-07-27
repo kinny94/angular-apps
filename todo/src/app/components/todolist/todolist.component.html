@@ -1,5 +1,5 @@
 <div fxFlexFill fxLayout="row">
-  <button mat-raised-button color="primary">Create Todo</button>
+  <button mat-raised-button color="primary" (click)="createTodo()">Create Todo</button>
 </div>
 <div fxFlexFill fxLayout="column" fxLayoutGap="25px">
   <ng-container *ngFor="let todo of todos$ | async">
