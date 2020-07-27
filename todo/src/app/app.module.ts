@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { CreateTodoComponent } from './components/create-todo/create-todo.component';
 import { CompletedTodosComponent } from './components/completed-todos/completed-todos.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'todo-app'),
     FlexLayoutModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
