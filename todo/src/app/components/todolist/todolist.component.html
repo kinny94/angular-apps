@@ -1,8 +1,14 @@
 <div fxFlexFill fxLayout="row">
   <button mat-raised-button color="primary" (click)="createTodo()">Create Todo</button>
 </div>
+<div fxFlexFill fxLayout="row">
+  <mat-form-field>
+    <mat-label>Todos List</mat-label>
+    <input matInput [formControl]="filterControl" autocomplete="off">
+  </mat-form-field>
+</div>
 <div fxFlexFill fxLayout="column" fxLayoutGap="25px">
-  <ng-container *ngFor="let todo of todos$ | async">
+  <ng-container *ngFor="let todo of dataSource$ | async">
     <p><mat-checkbox (change)="onCompleted(todo)">{{ todo.title }}</mat-checkbox></p>
   </ng-container>
 </div>

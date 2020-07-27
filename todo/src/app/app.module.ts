@@ -10,7 +10,7 @@ import { CompletedTodosComponent } from './components/completed-todos/completed-
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
 import { TodolistComponent } from './components/todolist/todolist.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
