@@ -29,7 +29,7 @@ export class CreateTodoComponent implements OnInit {
         name: this.name,
         title: this.title,
         status: TODO_STATUS.Todo,
-        createdAt: new Date(),
+        createdAt: new Date().getDate(),
       };
 
       this.todoService.createNewTodo(newTodo);

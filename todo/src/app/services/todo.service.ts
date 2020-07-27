@@ -1,45 +1,45 @@
 import { Injectable } from '@angular/core';
 import { of, Observable, BehaviorSubject } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { TODO_STATUS, Todos } from './../types';
-import { ThrowStmt } from '@angular/compiler';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 const TODOS: Todos[] = [
   {
     name: 'Todo App 1',
     title: 'Drink lots of water',
     status: TODO_STATUS.Todo,
-    createdAt: new Date(),
+    createdAt: new Date().getDate(),
   },
   {
     name: 'Todo App 2',
     title: 'Create a Todo Application',
     status: TODO_STATUS.Todo,
-    createdAt: new Date(),
+    createdAt: new Date().getDate(),
   },
   {
     name: 'Todo App 3',
     title: 'Solve Algorithms Questions',
     status: TODO_STATUS.Todo,
-    createdAt: new Date(),
+    createdAt: new Date().getDate(),
   },
   {
     name: 'Todo App 4',
     title: 'Do Something innovative',
     status: TODO_STATUS.Todo,
-    createdAt: new Date(),
+    createdAt: new Date().getDate(),
   },
   {
     name: 'Todo App 5' ,
     title: 'Play Counter Strike',
     status: TODO_STATUS.Todo,
-    createdAt: new Date(),
+    createdAt: new Date().getDate(),
   },
   {
     name: 'Todo App 6',
     title: 'Clear Interview',
     status: TODO_STATUS.Todo,
-    createdAt: new Date(),
+    createdAt: new Date().getDate(),
   }
 ];
 
@@ -51,7 +51,9 @@ export class TodoService {
   private todosSubject: BehaviorSubject<Todos[]> = new BehaviorSubject<Todos[]>(TODOS);
   todos$: Observable<Todos[]> = this.todosSubject.asObservable();
 
-  constructor() { }
+  constructor(firestore: AngularFirestore) { 
+    firestore.collection('todos').valueChanges().subscribe(console.log);
+  }
 
   getTodos(): Observable<Todos[]> {
     return this.todosSubject.pipe(

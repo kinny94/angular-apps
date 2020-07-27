@@ -7,5 +7,5 @@ export interface Todos {
   name: string;
   title: string;
   status: TODO_STATUS;
-  createdAt: Date;
+  createdAt: number;
 }
