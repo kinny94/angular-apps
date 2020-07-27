@@ -57,13 +57,13 @@ export class TodoService {
 
   getTodos(): Observable<Todos[]> {
     return this.todosSubject.pipe(
-      map((todos: Todos[]) => todos.filter((todo) => todo.status == TODO_STATUS.Todo)),
+      map((todos: Todos[]) => todos.filter((todo) => todo.status === TODO_STATUS.Todo)),
     );
   }
 
   getCompletedTodos(): Observable<Todos[]> {
     return this.todosSubject.pipe(
-      map((todos: Todos[]) => todos.filter((todo) => todo.status == TODO_STATUS.Completed)),
+      map((todos: Todos[]) => todos.filter((todo) => todo.status === TODO_STATUS.Completed)),
     );
   }
 
