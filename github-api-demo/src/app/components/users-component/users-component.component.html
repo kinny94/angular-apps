@@ -1,0 +1,10 @@
+<div fxFlex> 
+  <ng-container *ngIf="(users$ | async)?.length != 0; else loading">
+    <div fxLayout="row wrap" fxLayoutGap="25px">
+      <div fxFlex="calc(25% - 25px)" *ngFor="let user of users$ | async"> 
+        <app-user-card [user]="user"></app-user-card>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #loading><mat-spinner></mat-spinner></ng-template>
+</div>
