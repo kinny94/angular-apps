@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { UsersComponent } from './components/users-component/users-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/users-component/user-card/user-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UserCardComponent } from './components/users-component/user-card/user-c
     FlexLayoutModule,
     MaterialModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

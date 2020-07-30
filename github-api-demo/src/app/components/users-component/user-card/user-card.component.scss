@@ -1,0 +1,9 @@
+.user-card__component {
+    margin: 25px;
+}
+
+.user-card__component:hover {
+    box-shadow: 0 8px 8px 8px #ccc;
+    transform: translate3d(0,0,0);
+    transition: background .4s ease-in();
+}
