@@ -2,6 +2,31 @@
     margin: 25px;
 }
 
-.mat-card-image  {
-    margin: 25px;
+.user-profile__image  {
+    padding: 25px;
+}
+
+.user-profile__repo-card  {
+    margin: 10px 20px;
+}
+
+.user-profile__repo-card:hover {
+    box-shadow: 0 10px 10px 10px #ccc;
+    background-color: #3f51b5;
+    transition:  background 0.2s ease-in;
+    cursor: pointer;
+    color: white;
+}
+
+.user-profile__repo-name {
+    font-size: large;
+    font-weight: 300;
+}
+
+.user-profile__profile-card {
+    max-height: 600px;
+}
+
+.mat-card-image {
+    max-height: 100%;
 }

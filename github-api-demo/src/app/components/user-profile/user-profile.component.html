@@ -1,11 +1,28 @@
-<div class="user-profile__container">
+<div class="user-profile__container" *ngIf="userData$ | async as userData">
   <mat-card fxFlex="row" class="mat-elevation-z3">
-    <div fxFlex="50" fxLayoutAlign="center center" class="user-profile__image" fxLayoutGap="25px">
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <div fxFlex="50" class="user-profile__profile-card user-profile__image" fxLayoutAlign="center center" fxLayoutGap="25px">
+      <img mat-card-image src="{{ userData.avatar }}" alt="Photo of a Shiba Inu">
     </div>
 
-    <div fxFlex="50" fxLayoutAlign="center center">
-      <p>Here I'll show the data!!</p>
+    <div fxFlex="50" fxLayout="column" fxLayoutAlign="center center">
+      <p>Name: {{ userData.name }}</p>
+      <p>Company: {{ userData.company }}</p>
+      <p>Email: {{ userData.email }}</p>
+      <p>Location: {{ userData.location }}</p>
+      <p>Bio: {{ userData.bio }}</p>
     </div>
   </mat-card>
+</div>
+
+<div fxFlexFill fxLayout="column">
+  <a *ngFor="let repo of repos$ | async" href="{{ repo.html_url }}" target="_blank">
+    <mat-card fxFlex="row" class="user-profile__repo-card mat-elevation-z3">
+      <div fxFlex fxLayout="row">
+        <h4 class="user-profile__repo-name">{{ repo.full_name }}</h4>
+      </div>
+      <div>
+        <p>{{ repo.description }}</p>
+      </div>
+    </mat-card>
+  </a>
 </div>

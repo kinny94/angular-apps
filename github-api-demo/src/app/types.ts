@@ -24,3 +24,15 @@ export interface UserProfileData {
     created: string;
     lastOnline: string;
 }
+
+export interface ReposData {
+    description: string;
+    forks_count: string;
+    full_name: string;
+    language: string;
+    name: string;
+    updated_at: string;
+    watchers: string;
+    created_at: string;
+    html_url: string;
+}
