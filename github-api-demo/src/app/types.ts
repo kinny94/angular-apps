@@ -8,3 +8,19 @@ export interface UserData {
     organizationsUrl: string;
     reposUrl: string;
 }
+
+export interface UserProfileData {
+    username: string;
+    avatar: string;
+    name: string;
+    company: string;
+    location: string;
+    email: string;
+    bio: string;
+    publicRepos: string;
+    publicGists: string;
+    followers: string;
+    following: string;
+    created: string;
+    lastOnline: string;
+}

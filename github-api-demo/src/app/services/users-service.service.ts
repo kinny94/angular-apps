@@ -1,4 +1,4 @@
-import { UserData } from './../types';
+import { UserData, UserProfileData } from './../types';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, fromEventPattern } from 'rxjs';
@@ -32,6 +32,35 @@ export class UsersService {
         });
         return users;
       }),
+    );
+  }
+
+  getUserData(username: string): Observable<UserProfileData> {
+    return this.httpService.get(`https://api.github.com/users/${username}`).pipe(
+      map((userdata: any) => {
+        const userProfileData: UserProfileData = {
+          avatar: userdata.avatar_url,
+          bio: userdata.bio !== null ? userdata.bio : 'Unavailable',
+          company: userdata.company !== null ? userdata.company : 'Unavailable',
+          created: userdata.created_at,
+          lastOnline: userdata.updated_at,
+          email: userdata.email !== null ? userdata.email : 'Unavailable',
+          followers: userdata.followers,
+          following: userdata.following,
+          location: userdata.location !== null ? userdata.location : 'Unavailable',
+          name: userdata.name,
+          publicGists: userdata.public_gists,
+          publicRepos: userdata.public_repos,
+          username: userdata.login
+        };
+        return userProfileData;
+      }),
+    );
+  }
+
+  getRepos(username: string): Observable<any> {
+    return this.httpService.get(`https://api.github.com/users/${username}/repos`).pipe(
+      map((userRepos) =>  userRepos)
     );
   }
 }
