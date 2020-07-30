@@ -1,0 +1,30 @@
+<div class="featured-question__container"> 
+	<div fxLayout="column" fxLayoutAlign="center" fxLayoutGap="20px">
+		<mat-form-field appearance="fill">
+			<mat-label>Search for a question...</mat-label>
+			<input matInput placeholder="Search for a question...">
+			<mat-icon matSuffix>search</mat-icon>
+		</mat-form-field>
+		<mat-card  *ngFor="let featuredQuestion of featuredQuestions$ | async" fxLayout="row"  fxLayout.lt-md="column" class="featured-questions__card">
+			<div fxFlex="15" fxFlex.lt-md="0">
+				<img src="{{ featuredQuestion.owner.profile_image }}">
+			</div>
+			<div fxFlex="90" fxFlex.lt-md="0" fxLayout="column wrap">
+				<a href="{{ featuredQuestion.link }}" target="_blank">
+					<h4 class="featured-questions__question-title">{{ featuredQuestion.title }}</h4>
+				</a>
+				<div fxLayout="row wrap">
+					<button class="featured-questions__tag" *ngFor="let tag of featuredQuestion.tags" mat-raised-button color="warn">{{ tag }}</button>
+				</div>
+				<div fxLayoutGap="10px"> 
+					<button mat-raised-button color="accent" matBadge="{{ featuredQuestion.owner.reputation }}" matBadgePosition="after" matBadgeColor="warn">
+						{{ featuredQuestion.owner.display_name }}
+					</button>
+					<button mat-raised-button color="accent" matBadge="{{ featuredQuestion.bounty_amount }}" matBadgePosition="after" matBadgeColor="warn">
+						Bounty Amount
+					</button>
+				</div>
+			</div>
+		</mat-card>
+	</div>
+</div>

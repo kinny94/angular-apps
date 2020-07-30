@@ -1,0 +1,30 @@
+.featured-question__container {
+    margin: 25px;
+}
+
+.featured-questions__question-title {
+    font-weight: bold;;
+}
+
+.featured-questions__tag {
+    margin: 5px;
+}
+
+.featured-questions__card {
+    box-shadow: 0 5px 5px 5px #ccc;
+}
+
+.featured-questions__card:hover {
+    cursor: pointer;
+    background-color: #3f51b5;
+    color: white;
+    box-shadow: 0 10px 10px 10px #ccc;
+    transform: scale(1.01);
+    transition: background 1s ease-in();
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}

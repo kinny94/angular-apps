@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  config: {
+    url: `https://api.stackexchange.com/2.2`,
+    client_id: ``,
+    key: `Kri9sqx6JOsB1s2G6Oi7iQ((`,
+    secret: `q5s0hzutR1Fs9DekIb)DAQ((`,
+  }
 };
 
 /*
