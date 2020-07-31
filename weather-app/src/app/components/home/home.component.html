@@ -1,0 +1,16 @@
+<div fxFlex fxLayout="column" fxLayoutGap="30px">
+	<div>
+		<mat-form-field fxFlexFill appearance="fill">
+			<mat-label>Search for weather in a city..</mat-label>
+			<input matInput placeholder="Placeholder">
+			<mat-icon matSuffix>search</mat-icon>
+		</mat-form-field>
+	</div>
+	<div fxLayout="row wrap" fxLayoutGap="25px" fxLayoutAlign="start">
+		<ng-container *ngFor="let _ of [1,2,3,4,5,6]">
+			<div fxFlex.gt-md="0 0 calc(25% - 25px)" fxFlex.gt-sm="0 0 calc(33.3% - 32px)" fxFlex.gt-xs="0 0 calc(50% - 25px)" fxFlex.xs="0 0 100%">
+				<mat-card>Simple Card</mat-card>
+			</div>
+		</ng-container>
+	</div>
+</div>
