@@ -1,0 +1,17 @@
+<mat-card class="home__weather-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ weatherData.name }}</mat-card-title>
+    <mat-card-subtitle>{{ weatherData.description }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>Current temp: {{ weatherData.current_temp }}</p>
+    <p>Pressure: {{ weatherData.pressure }}</p>
+    <p>Humidity: {{ weatherData.humidity }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button fxFlex color="warn" mat-raised-button>Max: {{ weatherData.max_temp }}</button>
+    <button fxFlex color="accent" mat-raised-button>Min: {{ weatherData.min_temp }}</button>
+  </mat-card-actions>
+</mat-card>

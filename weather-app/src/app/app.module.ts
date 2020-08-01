@@ -9,11 +9,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './components/home/home.component';
+import { CityComponent } from './components/city/city.component';
+import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CityComponent,
+    WeatherCardComponent,
   ],
   imports: [
     BrowserModule,

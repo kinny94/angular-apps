@@ -4,6 +4,7 @@ import { WeatherService } from './../../services/weather.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   filterControl = new FormControl();
   constructor(
     private weatherService: WeatherService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -34,8 +36,8 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  getDataForCity(city: string) {
-    
+  getDataForCity() {
+    return this.router.navigate(['city', this.filterControl.value]);
   }
 
 }

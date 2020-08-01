@@ -3,29 +3,13 @@
 		<mat-form-field fxFlexFill appearance="fill">
 			<mat-label>Search for weather in a city..</mat-label>
 			<input [formControl]="filterControl" matInput placeholder="Placeholder">
-			<mat-icon matSuffix>search</mat-icon>
+			<mat-icon matSuffix (click)="getDataForCity()">search</mat-icon>
 		</mat-form-field>
 	</div>
 	<div fxLayout="row wrap" fxLayoutGap="25px" fxLayoutAlign="start">
 		<ng-container *ngFor="let weatherData of dataSource$ | async">
 			<div fxFlex.gt-md="0 0 calc(25% - 25px)" fxFlex.gt-sm="0 0 calc(33.3% - 32px)" fxFlex.gt-xs="0 0 calc(50% - 25px)" fxFlex.xs="0 0 100%">
-				<mat-card class="home__weather-card">
-					<mat-card-header>
-						<div mat-card-avatar class="example-header-image"></div>
-						<mat-card-title>{{ weatherData.name }}</mat-card-title>
-						<mat-card-subtitle>{{ weatherData.description }}</mat-card-subtitle>
-					</mat-card-header>
-					<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-					<mat-card-content>
-						<p>Current temp: {{ weatherData.current_temp }}</p>
-						<p>Pressure: {{ weatherData.pressure }}</p>
-						<p>Humidity: {{ weatherData.humidity }}</p>
-					</mat-card-content>
-					<mat-card-actions>
-						<button fxFlex color="warn" mat-raised-button>Max: {{ weatherData.max_temp }}</button>
-						<button fxFlex color="accent" mat-raised-button>Min: {{ weatherData.min_temp }}</button>
-					</mat-card-actions>
-				</mat-card>
+				<app-weather-card [weatherData]="weatherData"></app-weather-card>
 			</div>
 		</ng-container>
 	</div>

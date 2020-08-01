@@ -34,15 +34,16 @@ export class WeatherService {
       map((data: any) => {
         const cityData: WeatherData = {
           name: data.name,
-          description: data.weather.description,
+          description: data.weather[0].description,
           feels_like: data.main.feels_like,
           humidity: data.main.humidity,
-          max_temp: data.main.max_temp,
-          min_temp: data.main.min_temp,
+          max_temp: data.main.temp_max,
+          min_temp: data.main.temp_min,
           pressure: data.main.pressure,
-          weather: data.weather.main,
-          current_temp: data.weather.temp,
+          weather: data.weather[0].main,
+          current_temp: data.main.temp,
         };
+        console.log(cityData);
         return cityData;
       }),
     );
